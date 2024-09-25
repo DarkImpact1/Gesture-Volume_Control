@@ -14,25 +14,41 @@ class HandDetector():
         self.hands = self.mpHands.Hands(self.mode,self.maxHands,self.modelComplexity,self.detectionConfidence,self.trackinConfidence)
         self.mpDraw = mp.solutions.drawing_utils
 
-    def findhand(self,image,draw = False):
+    def findHand(self,image,draw = False):
         RGB_image = cv.cvtColor(image,cv.COLOR_BGR2RGB)
-        mp_hand_result = self.hands.process(RGB_image)
-        hand_landmarks = mp_hand_result.multi_hand_landmarks
+        self.mp_hand_result = self.hands.process(RGB_image)
+        hand_landmarks = self.mp_hand_result.multi_hand_landmarks
         # if camera is detecting hands only then 
         if hand_landmarks:
             # draw landmarks on each fist 
             for fist in hand_landmarks:
-                # #let's detect the index and landmark from fist
-                # for index,landmarks in enumerate(fist.landmark):
-                #     # print(index,landmarks)
-                #     height, width, channels = image.shape
-                #     pos_x, pos_y = int(landmarks.x*width), int(landmarks.y*height)
-                #     print(index,pos_x,pos_y)
-                #     if index == 4:
-                #         cv.circle(image,(pos_x,pos_y),15,(255,255,0),cv.FILLED)
-
                 if draw:
                     self.mpDraw.draw_landmarks(image,fist,self.mpHands.HAND_CONNECTIONS)
+
+        return image
+    
+
+    def findPosition(self,image,handNo=0,draw = True):
+        landmarkList = []
+        hand_landmarks = self.mp_hand_result.multi_hand_landmarks
+        # if camera is detecting hands only then 
+        if hand_landmarks:
+            my_fist_1 = hand_landmarks[0]
+
+            #let's detect the index and landmark from fist
+            for index,landmarks in enumerate(my_fist_1.landmark):
+                # print(index,landmarks)
+                height, width, channels = image.shape
+                pos_x, pos_y = int(landmarks.x*width), int(landmarks.y*height)
+                # print(index,pos_x,pos_y)
+                landmarkList.append([index,pos_x,pos_y])
+                if draw:
+                    if index == 4:
+                        cv.circle(image,(pos_x,pos_y),15,(255,255,0),cv.FILLED)
+
+        return landmarkList
+
+    
 
 
 def main():
@@ -42,7 +58,9 @@ def main():
     hand_detector = HandDetector() 
     while True:
         success, cam_image = camera.read()   
-        hand_detector.findhand(cam_image,True)
+        detected_fist = hand_detector.findHand(cam_image,True)
+        landmark_positions = hand_detector.findPosition(detected_fist)
+        print(landmark_positions)
 
         # Displaying FPS on screen 
         current_time = time.time()
