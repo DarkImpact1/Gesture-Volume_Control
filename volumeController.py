@@ -37,12 +37,15 @@ interface = devices.Activate(
 volume = interface.QueryInterface(IAudioEndpointVolume)
 volume.GetMasterVolumeLevel()
 volume_range = volume.GetVolumeRange()
-volume.SetMasterVolumeLevel(-20.0, None)
 min_volume = volume_range[0]
 max_volume = volume_range[1]
+volume_bar = 400 # Height of rectange
+volume_percentage = 0
 
 # object to detect fist
 handDetector = tm.HandDetector(detectionConfidence=0.8)
+
+
 
 while True:
     success, cam_image = camera.read()
@@ -60,9 +63,12 @@ while True:
         cv.line(cam_image,(thumb_x,thumb_y),(index_x, index_y),(255,0,555),3)     
 
         distance = math.hypot(thumb_x-index_x,thumb_y-index_y)
-        # Hand range is from 10 to 120
+        # Hand range is from 10 to  and we have to convert it into -65 to 0
+        print(distance)
         converted_volume = np.interp(distance,[10,120],[min_volume,max_volume])
-        print(converted_volume)
+        volume_bar = np.interp(distance,[10,120],[400,150]) # minimum should be at 400 and max should be at 150 i.e height
+        volume_percentage = np.interp(distance,[10,120],[0,100])
+        volume.SetMasterVolumeLevel(converted_volume, None)
 
         if int(distance) < 15:  
             cv.circle(cam_image,(center_x,center_y),5,(255,255,255),cv.FILLED)
@@ -71,6 +77,13 @@ while True:
 
 
         # print(landmark_positions[4],landmark_positions[8])
+
+    # Display volume change through rectange
+    cv.rectangle(cam_image,(50,150),(85,400),(0,255,0),2)
+    cv.rectangle(cam_image,(50,int(volume_bar)),(85,400),(0,255,0),cv.FILLED)
+    cv.putText(cam_image,str(int(volume_percentage)),(55,390),1,0.9,(0,0,0),2)
+
+
     displayFPS(cam_image)
     cv.imshow("Main-camera",cam_image)
     if cv.waitKey(1) == ord('q'):
