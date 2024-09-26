@@ -43,9 +43,7 @@ class HandDetector():
                 # print(index,pos_x,pos_y)
                 landmarkList.append([index,pos_x,pos_y])
                 if draw:
-                    for i in range(21):
-                        if index == i:
-                            cv.putText(image,str(index),(pos_x,pos_y),1,1,(0,0,0),2)
+                    cv.putText(image,str(index),(pos_x,pos_y),1,1,(0,0,0),1)
                         # cv.circle(image,(pos_x,pos_y),15,(255,255,0),cv.FILLED)
 
         return landmarkList

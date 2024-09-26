@@ -3,7 +3,12 @@ import mediapipe as mp
 import time
 import  tracking_module as tm
 
-
+def displayFPS(image):
+    global previous_time
+    current_time = time.time()
+    fps = 1/(current_time - previous_time)
+    previous_time = current_time
+    cv.putText(cam_image,f"{int(fps)} fps",(10,24),cv.FONT_HERSHEY_COMPLEX,1,(255,0,0),3)
 
 detector = tm.HandDetector()
 camera =  cv.VideoCapture(0)
@@ -16,10 +21,7 @@ while True:
     # print(landmark_positions)
     
     # Displaying FPS on screen 
-    current_time = time.time()
-    fps  = 1/(current_time - previous_time)
-    previous_time = current_time
-    cv.putText(cam_image,str(int(fps))+"fps",(10,70),cv.FONT_HERSHEY_COMPLEX_SMALL,1,(0,0,255),1)
+    displayFPS(cam_image)
 
     cv.imshow("Main-camera",cam_image)
     if cv.waitKey(1) == ord('q'):
