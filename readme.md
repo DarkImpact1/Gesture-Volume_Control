@@ -1,8 +1,5 @@
 
-<div align="center">
-  <h1>Gesture Volume Control Using OpenCV and MediaPipe</h1>
-  <img alt="output" src="images/output.gif" />
- </div>
+
 
 > This Project uses OpenCV and MediaPipe to Control system volume 
 
@@ -19,7 +16,7 @@ pip install -r requirements.txt
 ***
 ### MEDIAPIPE
 <div align="center">
-  <img alt="mediapipeLogo" src="images/mediapipe.png" />
+  <img alt="mediapipeLogo" src="images/mediapipe_logo.png" />
 </div>
 
 > MediaPipe offers open source cross-platform, customizable ML solutions for live and streaming media.
@@ -29,7 +26,6 @@ After the palm detection over the whole image our subsequent hand landmark model
 
 To obtain ground truth data, we have manually annotated ~30K real-world images with 21 3D coordinates, as shown below (we take Z-value from image depth map, if it exists per corresponding coordinate). To better cover the possible hand poses and provide additional supervision on the nature of hand geometry, we also render a high-quality synthetic hand model over various backgrounds and map it to the corresponding 3D coordinates.<br>
 
-#### Solution APIs
 ##### Configuration Options
 > Naming style and availability may differ slightly across platforms/languages.
 
@@ -66,6 +62,6 @@ Source: [MediaPipe Hands Solutions](https://google.github.io/mediapipe/solutions
 
 If you want to contact me, you can reach me through below handles.
 
-<a href="https://twitter.com/prrthamm"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1200px-Twitter_Bird.svg.png" width="25">@prrthamm</img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/pratham-bhatnagar/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"> Pratham Bhatnagar</img></a>
+<a href="https://twitter.com/dmohit013"><img src="https://upload.wikimedia.org/wikipedia/fr/thumb/c/c8/Twitter_Bird.svg/1200px-Twitter_Bird.svg.png" width="25">@dmohit013</img></a>&nbsp;&nbsp; <a href="https://www.linkedin.com/in/mohit-dwivedi13/"><img src="https://www.felberpr.com/wp-content/uploads/linkedin-logo.png" width="25"> Mohit Dwivedi </img></a>
 
 </div>
