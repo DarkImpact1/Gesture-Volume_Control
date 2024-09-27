@@ -1,26 +1,13 @@
-# Control your system's volume using Hand Gesture 
+
+<h1>Gesture Volume Control Using OpenCV and MediaPipe</h1>
 
 
-<div align="center">
-  <h1>Gesture Volume Control Using OpenCV and MediaPipe</h1>
-  <video controls>
-    <source src="images/Volume_Control.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+### 💾 How to clone this project and run in your local machine
 
-## 💾 How to clone this project and run in your local machine
-
-```bash
+```
 git clone https://github.com/DarkImpact1/HandTracking-openCV.git
-```
-```bash
 cd HandTracking-openCV
-```
-```bash
 pip install -r requirements.txt
-```
-```bash
 python main.py
 ```
 ***
