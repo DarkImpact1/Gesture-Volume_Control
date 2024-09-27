@@ -19,7 +19,7 @@ def displayFPS(image):
     fps = 1/(current_time - previous_time)
     previous_time = current_time
     cv.putText(image,f"{int(fps)} fps",(10,24),cv.FONT_HERSHEY_COMPLEX,1,(255,0,0),3)
-
+    
 def main():
     ###############################################
     width_camera, height_camera = 640,480
