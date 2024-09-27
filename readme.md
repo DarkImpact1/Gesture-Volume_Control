@@ -10,7 +10,9 @@ cd HandTracking-openCV
 pip install -r requirements.txt
 python main.py
 ```
-***
+<div align="center">
+    <img alt="mediapipeLogo" src="images/hand_landmarks_docs.png" height="200 x    " />
+</div>
 ### MEDIAPIPE
 <div align="center">
   <img alt="mediapipeLogo" src="images/mediapipe_logo.png" />
@@ -46,9 +48,7 @@ Minimum confidence value ([0.0, 1.0]) from the landmark-tracking model for the h
 Source: [MediaPipe Hands Solutions](https://google.github.io/mediapipe/solutions/hands#python-solution-api)
 
 <div align="center">
-    <img alt="mediapipeLogo" src="images/hand_landmarks_docs.png" height="200 x    " />
     <img alt="mediapipeLogo" src="images/htm.png" height="360 x" weight ="640 x" />
-    
 </div>
 
 
