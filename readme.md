@@ -3,15 +3,14 @@
 
 > This Project uses OpenCV and MediaPipe to Control system volume 
 
-## 💾 REQUIREMENTS
-+ opencv-python
-+ mediapipe
-+ comtypes
-+ numpy
-+ pycaw
+## 💾 How to clone this project and run in your local machine
+
 
 ```bash
+git clone https://github.com/DarkImpact1/HandTracking-openCV.git
+cd HandTracking-openCV
 pip install -r requirements.txt
+python main.py
 ```
 ***
 ### MEDIAPIPE
