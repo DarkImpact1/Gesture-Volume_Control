@@ -1,6 +1,18 @@
 
 <h1>Gesture Volume Control Using OpenCV and MediaPipe</h1>
 
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="/images/zero_percent.jpg" alt="Player Input Screen" width="300"/></td>
+    <td><img src="/images/twenty_five_percent.jpg" alt="Gameplay Screen" width="300"/></td>
+  </tr>
+  <tr>
+        <td><img src="/images/fifty_percent.jpg" alt="Player Input Screen" width="300"/></td>
+    <td><img src="/images/hundered_percent.jpg" alt="Game Over Screen" width="300"/></td>
+  </tr>
+</table>
 
 ### 💾 How to clone this project and run in your local machine
 
