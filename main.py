@@ -2,6 +2,7 @@ import cv2 as cv
 import time
 from trackingModule import HandDetector
 
+
 def main():
     """
     Main function to capture webcam feed, detect hand gestures, and control system volume using hand gestures.
